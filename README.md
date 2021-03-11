@@ -30,7 +30,7 @@ Em seguida, é possível utilizar os scripts definidos no arquivo ```package.jso
     ```
 Com as tabelas criadas podemos colocar a API em execução através do comando: `npm run dev`.<br/>
 > OBS¹: A API está definida para responder as solicitações na porta 8080, ou seja, localhost:8080 ou 127.0.0.1:8080, a porta pode ser editada dentro do arquivo ´server.js´.<br/>
-Para testar as rotas dentro da pasta API_NodeJs existe um arquivo exportado dos testes realizados no Insomnia, de maneira que é necessário apenas importar este arquivo para facilitar os testes as rotas.<br/>
+- Para testar as rotas dentro da pasta API_NodeJs existe um arquivo exportado dos testes realizados no Insomnia, de maneira que é necessário apenas importar este arquivo para facilitar os testes as rotas.
 > OBS²: Por utilizar o tipo UUID para chave primária não é possível deixar setado os id's nas rotas que necessitam informar, assim, é necessário alterar esses campos conforme os UUID's gerados ao criar os dados.<br/>
 
 <h3>Dificuldades</h3>
