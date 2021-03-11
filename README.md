@@ -35,10 +35,10 @@ Com as tabelas criadas podemos colocar a API em execução através do comando: 
 
 <h3>Dificuldades</h3>
 
-Ao longo do desenvolvimento da API encotrei dificuldade em conseguir implementar as rotas de Store utilizando os relacionamentos fornecidos pela biblioteca Objection. Ao tentar utilizar a função insertGraph(), a qual, teoricamente, insere dados na tabela relacionada ao Model e ao relacionamento previamente implementado, reparei que o ID, por exemplo, do naver criado não estava sendo retornado, sendo assim impossivel a função realizar o insert na tabela de relacionamento. Após pesquisar bastante em fóruns descobri que na verdade o problema é com o banco de dados MySQL que não possui a função returning(), assim não retornava a entrada inserida na tabela, assim como o id.<br/>
-Para contornar esse empecilho necessitei utilizar um novo select após inserir o naver, buscando pela ultima inserção na tabela, para conseguir recuperar o ID e poder inserir na tabela de relacionamento com os projetos que este participa.<br/>
-Acredito que a forma que contornei o problema não é a ideal, afinal a biblioteca oferece uma forma mais otimizada de realizar esta operação. Contudo, foi a primeira vez que utilizei as bibliotecas Knex e Objection juntamente com o banco MySQL, e pelo que li não existe um solução perfeita utilizando o MySQL para 
-esse problema, de maneira que uma futura implementação usarei o Postgresql.<br/>
+Ao longo do desenvolvimento da API encotrei dificuldade em conseguir implementar as rotas de Store utilizando os relacionamentos fornecidos pela biblioteca Objection. Ao tentar utilizar a função insertGraph(), a qual, teoricamente, insere dados na tabela relacionada ao Model e ao relacionamento previamente implementado, reparei que o ID, por exemplo, do naver criado, não estava sendo retornado, sendo assim impossivel a função realizar o insert na tabela de relacionamento. Após pesquisar bastante em fóruns, descobri que na verdade o problema é com o banco de dados MySQL que não possui a função returning(), assim não retornava a entrada inserida na tabela, assim como o campo ID.<br/>
+Para contornar esse empecilho necessitei utilizar um novo select() após inserir o naver, buscando pela ultima inserção na tabela, para conseguir recuperar o ID e poder inserir na tabela de relacionamento com os projetos que este participa.<br/>
+Acredito que a forma que contornei o problema não é a ideal, afinal a biblioteca oferece uma forma mais otimizada de realizar esta operação. Contudo, foi a primeira vez que utilizei as bibliotecas Knex e Objection juntamente com o banco MySQL, e pelo que li, não existe um solução perfeita utilizando o MySQL para 
+esse problema, de maneira que em uma futura implementação usarei o Postgresql.<br/>
 
 <h2>Exercícios de Banco de Dados</h2>
 
