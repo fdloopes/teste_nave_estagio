@@ -13,7 +13,7 @@
 <h2>Desafio Back-End</h2>
 
 - Possui a solução para o desafio back-end, implementação de uma API em node.js utilizando o padrão RESTful.
-- Para implementação da API foram utilizadas as seguintes bibliotecas: Express, Knex, Objection e Nodemon. Para o banco de dados foi escolhido o MySQL.
+- Para implementação da API foi utilizado banco MySQL e as seguintes bibliotecas: Express, Knex, Objection e Nodemon.
 - Inicialmente para colocar em execução a API é necessário editar o arquivo ```src/database/config.js```, nele estão as configurações de conexão ao banco de dados.
   
   ```javascript
@@ -21,19 +21,24 @@
   user: 'user',
   password: '123456'
   ```
-- No trecho acima estão as entradas que necessitam de configuração de acordo com o ambiente, sendo que o database informado necessita ser criado previamente e passado seu nome nesse campo. Os campos user e password são as credenciais de acesso ao banco.
-- Em seguida, é possível utilizar os scripts definidos no arquivo ```package.json``` para utilizar a migration(criação das tabelas) e a seed(inserção de dados nas tabelas).
+No trecho acima estão as entradas que necessitam de configuração de acordo com o ambiente, sendo que o database informado necessita ser criado previamente e passado seu nome nesse campo. Os campos user e password são as credenciais de acesso ao banco.
+Em seguida, é possível utilizar os scripts definidos no arquivo ```package.json``` para utilizar a migration(criação das tabelas) e a seed(inserção de dados nas tabelas).
   - Comandos para execução dos scripts:
     ```
     npm run migrate:latest
     npm run seed
     ```
-- Com as tabelas criadas podemos colocar a API em execução através do comando: `npm run dev`.
+Com as tabelas criadas podemos colocar a API em execução através do comando: `npm run dev`.
 > OBS¹: A API está definida para responder as solicitações na porta 8080, ou seja, localhost:8080 ou 127.0.0.1:8080, a porta pode ser editada dentro do arquivo ´server.js´.
-- Para testar as rotas dentro da pasta API_NodeJs existe um arquivo exportado dos testes realizados no Insomnia, de maneira que é necessário apenas importar este arquivo para facilitar os testes as rotas.
+Para testar as rotas dentro da pasta API_NodeJs existe um arquivo exportado dos testes realizados no Insomnia, de maneira que é necessário apenas importar este arquivo para facilitar os testes as rotas.
 > OBS²: Por utilizar o tipo UUID para chave primária não é possível deixar setado os id's nas rotas que necessitam informar, assim, é necessário alterar esses campos conforme os UUID's gerados ao criar os dados.
 
+<h3>Dificuldades</h3>
 
+Ao longo do desenvolvimento da API encotrei dificuldade em conseguir implementar as rotas de Store utilizando os relacionamentos fornecidos pela biblioteca Objection. Ao tentar utilizar a função insertGraph(), a qual, teoricamente, insere dados na tabela relacionada ao Model e ao relacionamento previamente implementado, reparei que o ID, por exemplo, do naver criado não estava sendo retornado, sendo assim impossivel a função realizar o insert na tabela de relacionamento. Após pesquisar bastante em fóruns descobri que na verdade o problema é com o banco de dados MySQL que não possui a função returning(), assim não retornava a entrada inserida na tabela, assim como o id. 
+Para contornar esse empecilho necessitei utilizar um novo select após inserir o naver, buscando pela ultima inserção na tabela, para conseguir recuperar o ID e poder inserir na tabela de relacionamento com os projetos que este participa.
+Acredito que a forma que contornei o problema não é a ideal, afinal a biblioteca oferece uma forma mais otimizada de realizar esta operação. Contudo, foi a primeira vez que utilizei as bibliotecas Knex e Objection juntamente com o banco MySQL, e pelo que li não existe um solução perfeita utilizando o MySQL para 
+esse problema, de maneira que uma futura implementação usarei o Postgresql.
 
 <h2>Exercícios de Banco de Dados</h2>
 
