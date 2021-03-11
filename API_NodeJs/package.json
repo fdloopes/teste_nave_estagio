@@ -1,0 +1,24 @@
+{
+  "name": "api_nodejs",
+  "version": "1.0.0",
+  "description": "API em NodeJS dos Navers e Projetos da Nave",
+  "main": "server.js",
+  "scripts": {
+    "migrate:latest": "npx knex migrate:latest --knexfile ./src/database/config.js",
+    "migrate:roolback": "npx knex migrate:roolback --knexfile ./src/database/config.js",
+    "seed": "npx knex seed:run --knexfile ./src/database/config.js",
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Felipe Lopes",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.95.1",
+    "mysql": "^2.18.1",
+    "objection": "^2.2.14"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
