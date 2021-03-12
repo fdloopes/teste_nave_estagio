@@ -1,8 +1,8 @@
 /* Script de criação de tabelas */
 
-DROP DATABASE baseNave;
-CREATE DATABASE baseNave;
-use baseNave;
+DROP DATABASE base_nave;
+CREATE DATABASE base_nave;
+use base_nave;
 
 /* TABELA NAVERS */
 CREATE TABLE navers(id BINARY(16) NOT NULL PRIMARY KEY, name VARCHAR(60) NOT NULL, job_role VARCHAR(40), birthdate DATE, admission_date DATE NOT NULL, created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP);
