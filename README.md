@@ -44,5 +44,5 @@ Acredito que a forma que contornei o problema não é a ideal, afinal a bibliote
 - Exercicios E.B.1 até E.B.5 propostos como desafio bônus.
 - As soluções são scripts sql, de maneira que para executa-los é necessário utilizar um banco de dados, para os desafios utilizei o MySQL.
 > - Obs: para facilitar é interessante abrir um terminal para acessar o BD de dentro do diretório onde estão os scripts.
-- Após estar logado no ambiente(MySQL) foi utilizado o comando: source "script a executar".
+- Após estar logado no ambiente(MySQL) basta utilizar o comando: source "script a executar".
 - Importante: O script E.B.1.sql é o de criação do BD e das tabelas, de maneira que deve ser o primeiro a ser executado, seguido do script E.B.2.sql que é o responsável por popular as tabelas.
