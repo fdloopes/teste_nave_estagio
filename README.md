@@ -30,15 +30,14 @@ Em seguida, é possível utilizar os scripts definidos no arquivo ```package.jso
     ```
 Com as tabelas criadas podemos colocar a API em execução através do comando: `npm run dev`.<br/>
 > OBS¹: A API está definida para responder as solicitações na porta 8080, ou seja, localhost:8080 ou 127.0.0.1:8080, a porta pode ser editada dentro do arquivo ´server.js´.<br/>
-- Para testar as rotas dentro da pasta API_NodeJs existe um arquivo exportado dos testes realizados no Insomnia, de maneira que é necessário apenas importar este arquivo para facilitar os testes as rotas.
+- Dentro da pasta API_NodeJs existe um arquivo exportado dos testes realizados no Insomnia, de maneira que é necessário apenas importar este arquivo para facilitar os testes as rotas.
 > OBS²: Por utilizar o tipo UUID para chave primária não é possível deixar setado os id's nas rotas que necessitam informar, assim, é necessário alterar esses campos conforme os UUID's gerados ao criar os dados.<br/>
 
 <h3>Dificuldades</h3>
 
-Ao longo do desenvolvimento da API encotrei dificuldade em conseguir implementar as rotas de Store utilizando os relacionamentos fornecidos pela biblioteca Objection. Ao tentar utilizar a função insertGraph(), a qual, teoricamente, insere dados na tabela relacionada ao Model e ao relacionamento previamente implementado, reparei que o ID, por exemplo, do naver criado, não estava sendo retornado, sendo assim impossivel a função realizar o insert na tabela de relacionamento. Após pesquisar bastante em fóruns, descobri que na verdade o problema é com o banco de dados MySQL que não possui a função returning(), assim não retornava a entrada inserida na tabela, assim como o campo ID.<br/>
-Para contornar esse empecilho necessitei utilizar um novo select() após inserir o naver, buscando pela ultima inserção na tabela, para conseguir recuperar o ID e poder inserir na tabela de relacionamento com os projetos que este participa.<br/>
-Acredito que a forma que contornei o problema não é a ideal, afinal a biblioteca oferece uma forma mais otimizada de realizar esta operação. Contudo, foi a primeira vez que utilizei as bibliotecas Knex e Objection juntamente com o banco MySQL, e pelo que li, não existe um solução perfeita utilizando o MySQL para 
-esse problema, de maneira que em uma futura implementação usarei o Postgresql.<br/>
+Ao longo do desenvolvimento da API encontrei dificuldade em conseguir implementar as rotas de Store utilizando os relacionamentos fornecidos pela biblioteca Objection. Ao tentar utilizar a função insertGraph(), a qual, teoricamente, insere dados na tabela relacionada ao Model e ao relacionamento previamente implementado, reparei que o ID, por exemplo, do naver criado, não estava sendo retornado, sendo assim impossivel a função realizar o insert na tabela de relacionamento. Após pesquisar em fóruns relacionados a biblioteca, descobri que na verdade o problema é com o banco de dados MySQL que não possui suporte a função returning(), assim não retornava a entrada inserida na tabela, assim como o campo ID.<br/>
+Para contornar esse empecilho necessitei utilizar um novo select() após inserir o naver, buscando pela última inserção na tabela, para conseguir recuperar o ID e poder inserir na tabela de relacionamento com os projetos que este participa.<br/>
+Acredito que a forma que contornei o problema não é a ideal, afinal a biblioteca oferece uma forma mais otimizada de realizar esta operação. Contudo, foi a primeira vez que utilizei as bibliotecas Knex e Objection juntamente com o banco MySQL, e não encontrei outra forma de contornar o problema. De qualquer maneira, em uma futura implementação usarei o PostgreSQL.<br/>
 
 <h2>Exercícios de Banco de Dados</h2>
 
