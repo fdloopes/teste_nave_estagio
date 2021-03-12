@@ -10,7 +10,7 @@
 - Link: https://codesandbox.io/s/teste-estagio-template-forked-p6uk9
 - As soluções e prints são exibidos através do console.log(), de maneira que para visualizar o resultado é necessário abrir o console no navegador.
 
-<h2>Desafio Back-End</h2>
+<h2>Desafio Back-end</h2>
 
 - Possui a solução para o desafio back-end, implementação de uma API em node.js utilizando o padrão RESTful.
 - Para implementação da API foi utilizado banco MySQL e as seguintes bibliotecas: Express, Knex, Objection e Nodemon.
